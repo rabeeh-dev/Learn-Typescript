@@ -110,3 +110,71 @@ function format(value: string | number): string {
   return String(value);
 }
 
+
+//! Static properties and methods
+
+//* Instance members: belong to individual objects created from a class.
+//* Static members: belong to the class itself, not to individual instances.
+
+
+class SubTask {
+  static totalCreated = 0;
+
+  constructor(public title: string) {
+    SubTask.totalCreated++;
+  }
+}
+
+const task1 = new SubTask("Build API");
+const task2 = new SubTask("Write tests");
+
+console.log(SubTask.totalCreated); // 2  //? this is static member 
+console.log(task1.title);       // "Build API" //? this is instance member 
+
+//! Static methods
+
+//* Static methods are useful for behavior that belongs to the class rather than to a particular object.
+
+//! getter setter methods 
+
+class MiniTask {
+  private _priority = 1;
+
+  get priority(): number {
+    return this._priority;
+  }
+
+  set priority(value: number) {
+    if (!Number.isInteger(value) || value < 1 || value > 3) {
+      throw new Error("Priority must be an integer from 1 to 3");
+    }
+
+    this._priority = value;
+  }
+}
+
+const task = new MiniTask();
+
+task.priority = 3; // Calls the setter
+console.log(task.priority); // Calls the getter: 3
+
+task.priority = 5; // Throws an error
+
+
+//! Abstract methods vs. concrete methods
+
+//* Abstract method: Declares what a subclass must implement. Used when different subclasses need different implementations.
+//* Concrete method: Has an actual implementation. Used when behavior can be shared or executed as-is.
+
+abstract class TaskRepository {
+  abstract findAll(): Promise<Task[]>;
+
+  log(): void {
+    console.log("Task repository");
+  }
+}
+//? Here, findAll() is abstract; log() is concrete.
+
+
+//! Singleton pattern
+

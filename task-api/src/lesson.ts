@@ -370,4 +370,12 @@ function isString(value: unknown): value is string {
 
 // console.log(getUserName(user));
 
+//! Interface vs Abstract class 
+
+//* in interface we cant provide multiple concrete thod bodies 
+//* we cannot store instance state in interface 
+//* we cannot build contructors in interface but we can in abstract class 
+//* abstract class exist as run time js class but interface not 
+
+
 
