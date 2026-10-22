@@ -63,3 +63,50 @@ console.log(rabeeh.checkBalance()) //*  Output : 2000
 //* Abstraction: Exposes a simple, meaningful interface while hiding unnecessary implementation details.
 
 
+//! Abstract class vs interface 
+
+//* the abstarct class containes implemented methods but not in interface 
+//* class can hold instance state and constructor also but interface cant 
+
+//? Use an abstract class when you need a shared base class with common state or behavior, as well as methods subclasses must implement.
+//? Don't choose an abstract class merely because you want abstraction.
+//? In TypeScript, a class can implement multiple interfaces, but it can only extend one class.
+
+//* Super keyword 
+
+// class EmailNotification extends Notification {
+//   constructor(recipient, subject) { 
+//     super(recipient); //* in here using super we calling the parent class notification 
+//     this.subject = subject; //* we cant call this keyword without using the super keyword so that is how this works 
+//   }
+// }
+
+
+//!Polimorphism 
+
+//? Method overriding 
+//* this is the process where if you have the same named method inside the child class the child class method override the parent class method which 
+//* has same name 
+
+class Parent {
+  greet(): void {
+    console.log("Hello");
+  }
+}
+
+class Child extends Parent {
+  override greet(): void {
+    console.log("Hey!");
+  }
+}
+
+//? Method overloading 
+//* One method supports multiple call signatures, typically with different argument types or counts.
+
+function format(value: string): string;
+function format(value: number): string;
+
+function format(value: string | number): string {
+  return String(value);
+}
+
