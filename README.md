@@ -34,6 +34,3 @@ Every question in this guide adheres to a strict, beginner-friendly format:
 
 ---
 
-## Getting Started
-
-To explore a module, click any link in the table of contents above or open the module file directly in your markdown reader or editor. For questions regarding the raw inventory and mapping history, consult [inventory.md](../analysis/inventory.md).
